@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Sbridge_Recentreview>
-            <version>0.1.0</version>
+            <version>1.0.4</version>
         </Sbridge_Recentreview>
     </modules>
     <frontend>
@@ -41,13 +41,21 @@
                     <title>Allow Everything</title>
                 </all>
                 <admin>
-                    <children>
-                        <Sbridge_Recentreview>
-                            <title>Recentreview Module</title>
-                            <sort_order>10</sort_order>
-                        </Sbridge_Recentreview>
-                    </children>
-                </admin>
+                   <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <review_section translate="title" module="recentreview">
+                                            <title>recentreview</title>
+                                            <sort_order>100</sort_order>
+                                        </review_section>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                 </children>
+            </admin>
             </resources>
         </acl>
         <layout>
