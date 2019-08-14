@@ -1,0 +1,89 @@
+<?php
+/**
+* Setubridge Technolabs
+* http://www.setubridge.com/
+* @author SetuBridge
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+**/
+?>
+<?php
+    $reviews_all = Mage::getModel('recentreview/recentreview')->getRecentreviews();
+    if($reviews_all):
+        $recentReviewGroup = Mage::getStoreConfig('review_section/recentreview_group');
+        if($recentReviewGroup['homepage_enable'] == 1):
+            if($this->getNameInLayout() == "left.review" && $recentReviewGroup['homepage_area'] == "left" || $this->getNameInLayout() == "right.review" && $recentReviewGroup['homepage_area'] == "right"):
+                $i=0;
+            ?>
+            <div class="block block-recent-review">
+                <div class="block-title">
+                    <strong>
+                        <span><?php echo $this->__('Recent Reviews');?></span>
+                    </strong>                    
+                </div>
+                <div class="content">                
+                    <?php
+                        foreach($reviews_all as $review):
+                            if($review['imageValue'] === "no_selection" || $review['imageValue'] == NULL):                            
+                                $newPath = Mage::getModel('catalog/product')->getSmallImageUrl(75);                            
+                                else:                            
+                                $newPath= $this->helper('catalog/image')->init($review['imageValue'], 'small_image',$review['imageValue'])->resize(75);
+                                endif;
+                            $reviewUrlId = Mage::getUrl('review/product/list', array('id'=> $review['entity_pk_value']));
+                            $rating = Mage::getModel('rating/rating')->load($review['entity_pk_value']);
+                        ?>
+                        <div class="RecentReview-Items">
+                            <div class="RecentReview-ProdDetails">
+                                <div class="RecentReview-ProdInfo">
+                                    <div class="RecentReview-ProdImage">
+                                        <a href="<?php echo Mage::getBaseUrl().$review['value']; ?>">
+                                            <img src="<?php echo $newPath; ?>" title="<?php echo $review['productName'];?>">
+                                        </a>
+                                    </div>
+                                    <div class="product-name RecentReview-ProdName">
+                                        <a href="<?php echo Mage::getBaseUrl().$review['value']; ?>" title="<?php echo $review['productName'];?>">
+                                            <span><?php echo $review['productName'];?></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="RecentReview-ProdReviews">
+                                <div class="RecentReview-Title">
+                                    <a href="<?php echo $reviewUrlId;?>" title="Open Full Review of <?php echo $review['productName'];?>">
+                                        <span><?php  echo $this->htmlEscape($review['title']);?></span>
+                                    </a>
+                                </div>
+                                <div class="RecentReview-ReviewDate">
+                                    <small class="date"><?php $this->__('(Posted on %s)', $this->formatDate($review['created_at']), 'long');
+                                            echo date('M d,Y', strtotime($review['created_at']));
+                                    ?></small>
+                                </div>
+                                <?php $summaryData = Mage::getModel('review/review_summary')->load($review['entity_pk_value']);?>
+                                <?php if($summaryData->getRatingSummary()):?>
+                                    <div class="rating-box">
+                                        <div class="rating" style="width:<?php echo $summaryData->getRatingSummary(); ?>%;"></div>
+                                    </div>
+                                    <?php endif; ?>
+                                <div class="RecentReview-DetailReview">
+                                    <?php 
+                                        if(round($recentReviewGroup['homepage_character']) == "" || round($recentReviewGroup['homepage_character']) == null || strlen($review['detail']) <= round($recentReviewGroup['homepage_character'])):
+                                            echo nl2br($this->htmlEscape($review['detail']))."</div>";                                         
+                                            else:
+                                            echo substr($review['detail'],0,round($recentReviewGroup['homepage_character']))?>
+                                        <?php echo $this->__('...')?><a class='RecentReview-read read open' id="<?php echo "read_".$i;?>" onclick="sbreadmore('<?php echo "read_".$i;?>')" title="Read More"><span><?php echo $this->__('Read More');?></span></a></div>
+                                    <div class="RecentReview-DetailReview sbfull" id="<?php echo "close_$i"?>"  style="display: none;"><?php echo nl2br($this->htmlEscape($review['detail'])); ?>
+                                        <a id="<?php echo "read_".$i;?>" onclick="sbclose('<?php echo "close_".$i;?>')" title="Read Less"><span><?php echo $this->__('Close');?></span></a>
+                                    </div>
+                                    <?php endif;?>
+                            </div>
+                            <div class="RecentReview-ReviewAuthor">
+                                <span><?php echo $this->__('Review by <span>%s</span>', $this->htmlEscape($review['nickname']));?></span>
+                            </div>
+                        </div>
+                        <?php $i++;
+                            endforeach;?>
+                </div>
+            </div>
+            <?php 
+                endif;
+            endif;
+        endif;?>

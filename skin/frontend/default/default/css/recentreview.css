@@ -35,7 +35,7 @@
 .block-recent-review .content {padding: 5px;}
 .block-recent-review .block-title strong
 {
-    background:url("../images/recentreview/review-icon.PNG") no-repeat scroll 5px 1px rgba(0, 0, 0, 0);
+    background:url("../images/recentreview/review-icon.png") no-repeat scroll 5px 1px rgba(0, 0, 0, 0);
     padding-left: 25px;
 }
 .content .RecentReview-Items:last-child {border-bottom: 0 none;}
