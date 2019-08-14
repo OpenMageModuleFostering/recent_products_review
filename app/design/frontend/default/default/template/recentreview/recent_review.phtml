@@ -1,4 +1,4 @@
-<?php
+<?php                
 /**
 * Setubridge Technolabs
 * http://www.setubridge.com/
@@ -23,6 +23,7 @@
                 <div class="content">                
                     <?php
                         foreach($reviews_all as $review):
+                          //DebugBreak();
                             if($review['imageValue'] === "no_selection" || $review['imageValue'] == NULL):                            
                                 $newPath = Mage::getModel('catalog/product')->getSmallImageUrl(75);                            
                                 else:                            
@@ -55,6 +56,7 @@
                                 <div class="RecentReview-ReviewDate">
                                     <small class="date"><?php $this->__('(Posted on %s)', $this->formatDate($review['created_at']), 'long');
                                             echo date('M d,Y', strtotime($review['created_at']));
+                                            
                                     ?></small>
                                 </div>
                                 <?php $summaryData = Mage::getModel('review/review_summary')->load($review['entity_pk_value']);?>
