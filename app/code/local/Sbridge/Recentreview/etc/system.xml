@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <tabs>
+        <sbridge_tab module="recentreview" translate="label">
+            <label>SetuBridge</label>
+            <sort_order>100</sort_order>
+        </sbridge_tab>
+    </tabs>
+    <sections>
+        <review_section module="recentreview" translate="label">
+            <label>Recent Review Sidebar</label>
+            <sort_order>100</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <tab>sbridge_tab</tab>
+            <groups>
+                <recentreview_group translate="label">
+                    <label>Recent Review</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <homepage_enable translate="label">
+                            <label>Enable Module?</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </homepage_enable>
+                        <homepage_area>
+                            <label>Show Recent Review in </label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>recentreview_adminhtml/system_config_source_MyCustomOptions</source_model>
+                        </homepage_area>
+                        <homepage_character>
+                            <label>Character limit </label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </homepage_character>
+                        <homepage_reviewcount>
+                            <label>Reviews to Display </label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </homepage_reviewcount>
+                    </fields>
+                </recentreview_group>
+            </groups>
+        </review_section>
+    </sections>
+</config>

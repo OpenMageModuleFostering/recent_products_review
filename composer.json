@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Recent_Products_Review",
+    "type": "magento-module",
+    "license": "OSLv3.0",
+    "homepage": "",
+    "description": "Easy Extension to showcase Recent Review for store products along with product image.",
+    "authors": [
+    {
+        "name": "SetuBridge",
+        "email": "support@setubridge.com"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

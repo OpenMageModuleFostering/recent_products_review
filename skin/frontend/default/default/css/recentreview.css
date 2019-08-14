@@ -1,0 +1,41 @@
+/**
+* Setubridge Technolabs
+* http://www.setubridge.com/
+* @author SetuBridge
+* @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+**/
+
+.RecentReview .DetailReview {word-break: break-all;}
+.RecentReview-ProdImage 
+{
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-right: 10px;
+}    
+.ProdName{margin-top: 5px;}    
+.ProdReviews 
+{
+    border-left: 1px solid #C4C1BC;
+    padding: 5px;
+}
+.RecentReview-ProdReviews {word-break: break-all;}
+.RecentReview-Items {border-bottom: 1px solid #CCCCCC;}
+.ratings-table {
+    clear: both;
+    margin-bottom: 10px;
+}
+.RecentReview-DetailReview {margin: 5px;}
+.RecentReview-DetailReview.sbfull {margin: 5px;}
+.RecentReview-ReviewAuthor {padding-left: 5px;}
+.RecentReview-ReviewDate {font-style: italic;}
+.RecentReview-DetailReview.sbfull a {cursor: pointer;}
+.RecentReview-read.read {cursor: pointer;}
+.RecentReview-ProdName {word-break: break-all;}
+.block-recent-review .content {padding: 5px;}
+.block-recent-review .block-title strong
+{
+    background:url("../images/recentreview/review-icon.PNG") no-repeat scroll 5px 1px rgba(0, 0, 0, 0);
+    padding-left: 25px;
+}
+.content .RecentReview-Items:last-child {border-bottom: 0 none;}

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addCss" ifconfig="review_section/recentreview_group/homepage_enable"><stylesheet>css/recentreview.css</stylesheet></action>
+            <action method="addItem" ifconfig="review_section/recentreview_group/homepage_enable">
+                <type>skin_js</type>
+                <name>js/recentreview/recentreview.js</name>
+                <params/>
+            </action>
+        </reference>
+
+        <reference name="right">        
+            <block type="core/template" name="right.review" template="recentreview/recent_review.phtml"/>            
+        </reference>         
+
+        <reference name="left">        
+            <block type="core/template" name="left.review" template="recentreview/recent_review.phtml"/>            
+        </reference>  
+    </default>
+</layout> 
