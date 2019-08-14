@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Sbridge_Recentreview>
-            <version>1.0.4</version>
+            <version>1.0.6</version>
         </Sbridge_Recentreview>
     </modules>
     <frontend>
@@ -25,13 +25,13 @@
     </frontend>
     <admin>
         <routers>
-            <recentreview>
-                <use>admin</use>
-                <args>
-                    <module>Sbridge_Recentreview</module>
-                    <frontName>recentreview</frontName>
-                </args>
-            </recentreview>
+            <adminhtml>
+                <args> 
+                    <modules>
+                            <recentreview_admin after="Mage_Adminhtml">Sbridge_Recentreview_Adminhtml</recentreview_admin> 
+                    </modules>
+               </args> 
+            </adminhtml> 
         </routers>
     </admin>
     <adminhtml>
