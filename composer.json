@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Recent_Products_Review",
+    "name": "openmage-module-fostering\/recent_products_review",
     "type": "magento-module",
-    "license": "OSLv3.0",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Easy Extension to showcase Recent Review for store products along with product image.",
     "authors": [
